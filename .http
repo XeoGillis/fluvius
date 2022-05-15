@@ -1,0 +1,148 @@
+@url = http://localhost:9001/api/
+@bearer = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5MTNiMzcwYS02MjY2LTRhNmYtODlkNy03ZWFlMmRjOTNmNDciLCJyb2xlcyI6WyJNVk8gQ2_DtnJkaW5hdG9yIl0sImlhdCI6MTY0ODY0Mjg0NywiZXhwIjoxNjQ4Njc4ODQ3LCJhdWQiOiIiLCJpc3MiOiIiLCJzdWIiOiJhdXRoIn0.a1sxwQeB4iYy9mT-CuIul5ULDhnNbXm90RRVzS33avk
+@content = application/json
+
+
+
+##### CATEGORY
+###
+GET {{url}}category
+Authorization: {{bearer}}
+###
+GET {{url}}category/sdg/3
+Authorization: {{bearer}}
+
+
+
+##### EXTERNALUSER
+###
+GET {{url}}externalUser/2f4e0e16-4e52-4693-8c0a-f30585d56cb6
+###
+POST {{url}}externalUser/login
+Content-Type: {{content}}
+
+{
+    "username":"Cara.Van"
+}
+
+
+
+##### GOAL
+###
+GET {{url}}goal/children/Natuurgebieden voorzien
+Authorization: {{bearer}}
+###
+GET {{url}}goal/category/Economisch
+Authorization: {{bearer}}
+###
+GET {{url}}goal/roles/b1d22218-734b-4e19-b493-f06a0409afd4/Economisch
+Authorization: {{bearer}}
+###
+GET {{url}}goal/parents/d38dc4d7-1734-4d4d-967a-c6b25d120667/Gebruik%20van%20LED
+Authorization: {{bearer}}
+###
+GET {{url}}goal/history/Elektrisch rijden
+Authorization: {{bearer}}
+###
+GET {{url}}goal/placeholder
+Authorization: {{bearer}}
+###
+GET {{url}}goal/url/-1
+Authorization: {{bearer}}
+###
+GET {{url}}goal/reachedgoals
+Authorization: {{bearer}}
+
+##### HEALTH
+###
+GET {{url}}health/ping
+###
+GET {{url}}health/version
+###
+POST {{url}}health/validateroute
+Content-Type: {{content}}
+
+{
+    "data":["Economisch", "sdg goal of sdg 3"]
+}
+
+
+
+##### NOTIFICATION
+###
+GET {{url}}notification
+Authorization: {{bearer}}
+###
+DELETE {{url}}notification
+Authorization: {{bearer}}
+###
+DELETE {{url}}notification/a70be62e-ec7f-4c31-aa19-bac1d45e5f46
+Authorization: {{bearer}}
+###
+PUT {{url}}notification/72e8a0c6-ad1e-4f71-b4d6-53d88d021a82
+Authorization: {{bearer}}
+###
+POST {{url}}notification
+Authorization: {{bearer}}
+Content-Type: {{content}}
+
+{
+    "goal": "Sociale zekerheid",
+    "text": "Second time best time, I hope"
+}
+
+
+##### ROLES
+###
+GET {{url}}roles
+Authorization: {{bearer}}
+
+
+
+###### TEMPLATE
+###
+POST {{url}}template
+Authorization: {{bearer}}
+Content-Type: {{content}}
+
+{
+    "roleId":"aaaed50b-48f8-42be-b8cf-6c80595ff85d"
+}
+###
+DELETE {{url}}template/c401740a-2046-4458-b57f-955ddbf4e018
+Authorization: {{bearer}}
+###
+PUT {{url}}template
+Authorization: {{bearer}}
+Content-Type: {{content}}
+
+{
+    "templateId":"3aefcce6-422b-434c-a872-6399a104ab6a",
+    "goalId":"9f92e8f6-9601-4752-ac9e-d45f7ec39272",
+    "flag":true
+}
+###
+PUT {{url}}template/personal
+Authorization: {{bearer}}
+Content-Type: {{content}}
+
+{
+    "goalId":"6e8c05ef-131b-47b7-8369-dff051204608",
+    "flag": true
+}
+
+
+
+##### USER
+###
+POST {{url}}user/login
+Authorization: {{bearer}}
+Content-Type: {{content}}
+
+{
+    "username":"Ann.Onym",
+    "password":"12345678"
+}
+###
+GET {{url}}user/1badf424-cb38-4f2d-9865-533d1c5d6fdb
+Authorization: {{bearer}}
